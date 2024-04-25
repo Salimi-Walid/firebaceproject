@@ -4,12 +4,13 @@ class Textfiel extends StatelessWidget {
   final bool Ispassword;
   final TextInputType TextInputType1;
   final String hinttext;
-
+  final TextEditingController? controler;
   const Textfiel(
       {super.key,
       required this.Ispassword,
       required this.TextInputType1,
-      required this.hinttext});
+      required this.hinttext,
+      required this.controler});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,7 @@ class Textfiel extends StatelessWidget {
         borderRadius: BorderRadius.circular(22),
       ),
       child: TextField(
+        controller: controler,
         obscureText: Ispassword,
         keyboardType: TextInputType1,
         textInputAction: TextInputAction.next,

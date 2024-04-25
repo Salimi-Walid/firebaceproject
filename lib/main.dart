@@ -1,7 +1,15 @@
-import 'package:firebaceproject/page/login.dart';
+import 'package:firebaceproject/auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: FirebaseOptions(
+          apiKey: "AIzaSyAnjJka3xr5gtcr4j3vmUEjvaeSt7d7qEk",
+          appId: "1:182936767964:android:0fef5b95a77f81e787d319",
+          messagingSenderId: "182936767964",
+          projectId: "flutterapp-21cdf"));
   runApp(const MyApp());
 }
 
@@ -18,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const Login(),
+      home: const Auth(),
     );
   }
 }

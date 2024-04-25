@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182936767964",
+    "project_id": "flutterapp-21cdf",
+    "storage_bucket": "flutterapp-21cdf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182936767964:android:0fef5b95a77f81e787d319",
+        "android_client_info": {
+          "package_name": "com.example.firebaceproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnjJka3xr5gtcr4j3vmUEjvaeSt7d7qEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
