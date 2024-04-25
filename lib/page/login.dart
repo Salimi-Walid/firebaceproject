@@ -3,6 +3,7 @@ import 'package:firebaceproject/page/signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,6 +15,20 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordcontroler = TextEditingController();
+
+  Future signup() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordcontroler.text.trim());
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailController.dispose();
+    passwordcontroler.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +80,7 @@ class _LoginState extends State<Login> {
                 height: 19,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: signup,
                 child: Container(
                   width: 250,
                   height: 50,

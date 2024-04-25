@@ -8,7 +8,7 @@ class Homepage extends StatelessWidget {
     return const Scaffold(
       body: Center(
           child: Text(
-        'khroj thewa',
+        'login secces',
         style: TextStyle(fontSize: 40),
       )),
     );
