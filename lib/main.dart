@@ -5,7 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
           apiKey: "AIzaSyAnjJka3xr5gtcr4j3vmUEjvaeSt7d7qEk",
           appId: "1:182936767964:android:0fef5b95a77f81e787d319",
           messagingSenderId: "182936767964",
