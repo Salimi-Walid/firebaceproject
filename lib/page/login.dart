@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordcontroler = TextEditingController();
 
-  Future signup() async {
+  Future login() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordcontroler.text.trim());
@@ -80,7 +80,7 @@ class _LoginState extends State<Login> {
                 height: 19,
               ),
               GestureDetector(
-                onTap: signup,
+                onTap: login,
                 child: Container(
                   width: 250,
                   height: 50,

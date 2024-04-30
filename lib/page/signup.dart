@@ -1,6 +1,7 @@
 import 'package:firebaceproject/class/textfield.dart';
 import 'package:firebaceproject/page/login.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -12,13 +13,37 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
+  final confermpassword = TextEditingController();
+  Future signup() async {
+    if (passwordconferm()) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailcontroller.text.trim(),
+          password: passwordcontroller.text.trim());
+    }
+    Navigator.of(context).pushNamed('/');
+  }
+
+  bool passwordconferm() {
+    if (passwordcontroller.text.trim() == confermpassword.text.trim()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xAA84CCF4),
-      body: SingleChildScrollView(
-        child: Center(
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               const Text(
@@ -37,6 +62,12 @@ class _SignupState extends State<Signup> {
                 Ispassword: true,
                 TextInputType1: TextInputType.visiblePassword,
                 hinttext: 'Password',
+              ),
+              Textfiel(
+                controler: confermpassword,
+                Ispassword: true,
+                TextInputType1: TextInputType.visiblePassword,
+                hinttext: 'Confirm the Password',
               ),
               const SizedBox(
                 height: 15,
@@ -64,7 +95,7 @@ class _SignupState extends State<Signup> {
                 height: 25,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: signup,
                 child: Container(
                   width: 250,
                   height: 50,
@@ -74,7 +105,7 @@ class _SignupState extends State<Signup> {
                       color: const Color.fromARGB(255, 252, 251, 249)),
                   child: const Center(
                     child: Text(
-                      'Login',
+                      'Sign-up',
                       style: TextStyle(
                           fontSize: 22, fontWeight: FontWeight.normal),
                     ),
